@@ -140,6 +140,39 @@ export default async function Home() {
             </section>
           </aside>
         </section>
+
+        <footer className="mt-auto grid gap-4 border-t border-black/10 pt-6 text-sm text-slate-600 sm:grid-cols-[1fr_auto] sm:items-end">
+          <div className="rounded-[1.5rem] border border-black/10 bg-white/65 p-5 backdrop-blur-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
+              Contact
+            </p>
+            <p className="mt-3 max-w-2xl leading-7">
+              For full-stack product work, React and TypeScript builds, or AI and
+              LLM integration work, reach out by email or start from the public
+              GitHub profile.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-4 py-2 font-medium text-slate-800 transition hover:border-slate-950 hover:bg-slate-950 hover:text-white"
+                href="mailto:ohrytskov20230516@gmail.com"
+              >
+                ohrytskov20230516@gmail.com
+              </a>
+              <a
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-4 py-2 font-medium text-slate-800 transition hover:border-slate-950 hover:bg-slate-950 hover:text-white"
+                href={profile.html_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                github.com/ohrytskov
+              </a>
+            </div>
+          </div>
+
+          <div className="pb-1 text-xs uppercase tracking-[0.22em] text-slate-500">
+            Static profile • no repo cards • built with Next.js
+          </div>
+        </footer>
       </div>
     </main>
   );
