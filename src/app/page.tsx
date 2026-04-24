@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { formatMonthYear, getGitHubProfile, splitBio } from "@/lib/github";
+import {
+  formatDateLong,
+  formatNumber,
+  getGitHubProfile,
+  splitBio,
+} from "@/lib/github";
 
 function getFocusAreas(bioLines: string[]) {
   return Array.from(
@@ -27,8 +32,8 @@ export default async function Home() {
   const profile = await getGitHubProfile();
   const bioLines = splitBio(profile.bio);
   const focusAreas = getFocusAreas(bioLines);
-  const joined = formatMonthYear(profile.created_at);
-  const refreshed = formatMonthYear(profile.updated_at);
+  const latestContributionDate = formatDateLong(profile.latest_contribution_date);
+  const refreshed = formatDateLong(profile.updated_at);
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_#e6f1ff,_#f7f7f5_45%,_#f1efe8_100%)] text-slate-950">
@@ -117,9 +122,12 @@ export default async function Home() {
 
               <dl className="mt-8 grid gap-4 sm:grid-cols-2">
                 <Stat label="Location" value={profile.location ?? "Ukraine"} />
-                <Stat label="On GitHub Since" value={joined} />
-                <Stat label="Followers" value={String(profile.followers)} />
-                <Stat label="Following" value={String(profile.following)} />
+                <Stat label="Latest Contribution" value={latestContributionDate} />
+                <Stat label="Public Repos" value={formatNumber(profile.public_repos)} />
+                <Stat
+                  label="Contributions (Last Year)"
+                  value={formatNumber(profile.contributions_last_year)}
+                />
               </dl>
             </section>
 
@@ -130,12 +138,14 @@ export default async function Home() {
               <ul className="mt-5 space-y-4 text-sm leading-7 text-slate-700">
                 <li>Name and bio are pulled from the live GitHub user profile.</li>
                 <li>
-                  The page is exported statically for GitHub Pages and rebuilt from
-                  public data during deployment.
+                  Public repo count is the exact current public repository total from
+                  GitHub API, not the total including private repositories.
                 </li>
                 <li>
-                  Last public profile update seen by the GitHub API: {refreshed}.
+                  Contribution count and latest contribution date both come from
+                  GitHub GraphQL using the public contribution calendar.
                 </li>
+                <li>Last public profile update seen by the GitHub API: {refreshed}.</li>
               </ul>
             </section>
           </aside>
