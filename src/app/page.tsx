@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   formatDateLong,
   formatNumber,
@@ -47,14 +48,22 @@ export default async function Home() {
               github.com/ohrytskov
             </h1>
           </div>
-          <a
-            className="inline-flex items-center justify-center rounded-full border border-slate-950 px-5 py-2 text-sm font-medium text-slate-950 transition hover:bg-slate-950 hover:text-white"
-            href={profile.html_url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open GitHub
-          </a>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+              href="/portfolio/"
+            >
+              Portfolio →
+            </Link>
+            <a
+              className="inline-flex items-center justify-center rounded-full border border-slate-950 px-5 py-2 text-sm font-medium text-slate-950 transition hover:bg-slate-950 hover:text-white"
+              href={profile.html_url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open GitHub
+            </a>
+          </div>
         </header>
 
         <section className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.35fr_0.85fr] lg:py-14">
@@ -71,8 +80,14 @@ export default async function Home() {
                   <p key={line}>{line}</p>
                 ))}
                 <p>
-                  This page intentionally shows profile data only. Repository lists,
-                  pinned projects, and contribution views are left out on purpose.
+                  This page is a small public snapshot. Selected work lives on the{" "}
+                  <Link
+                    href="/portfolio/"
+                    className="font-medium text-slate-950 underline decoration-slate-400 underline-offset-4 transition hover:decoration-slate-950"
+                  >
+                    portfolio page
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
