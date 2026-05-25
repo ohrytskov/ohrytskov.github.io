@@ -26,18 +26,15 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Use :where() to demote the selectors' specificity to 0,
-   so any Tailwind utility class (text-white, text-slate-950) wins.
-   Without this, the global `a { color: inherit }` rule beats utility classes
-   because element-selector + unlayered-vs-layered cascade. */
-:where(a) {
-  color: inherit;
-  text-decoration: none;
-}
-:where(img) {
-  display: block;
-  max-width: 100%;
-}
+/* Note: we deliberately do NOT add a global `a { color: inherit }` here.
+   Tailwind v4's preflight already provides it inside @layer base, which
+   means utility classes like `text-white` (in @layer utilities, applied
+   later in the cascade) can override the inherit. Adding an unlayered
+   `a { color: inherit }` would beat all layered utilities and make
+   text-white on links invisible.
+   Same logic for `img { display: block; max-width: 100% }` — Tailwind
+   handles `max-width: 100%` per-img via responsive utilities; if
+   reintroduced here it must be layered. */
 
 ::selection {
   background: rgba(37, 99, 235, 0.18);
