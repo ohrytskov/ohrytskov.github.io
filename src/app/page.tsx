@@ -186,9 +186,6 @@ export default async function Home() {
                 tests, CI, monitoring, clear comms, US-business-hours overlap from Kyiv.
               </li>
             </ul>
-            <p className="mt-6 text-xs uppercase tracking-[0.22em] text-slate-500">
-              12+ years · React, Next.js, TypeScript, Node, AI/LLM
-            </p>
           </section>
         </section>
 
