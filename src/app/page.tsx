@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {ContactForm} from "@/components/ContactForm";
 import {
   formatDateLong,
   formatNumber,
@@ -172,25 +173,12 @@ export default async function Home() {
               Contact
             </p>
             <p className="mt-3 max-w-2xl leading-7">
-              For full-stack product work, React and TypeScript builds, or AI and
-              LLM integration work, reach out by email or start from the public
-              GitHub profile.
+              For full-stack product work, React and TypeScript builds, or AI
+              and LLM integration work, drop a line below. Goes straight to my
+              inbox.
             </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-4 py-2 font-medium text-slate-800 transition hover:border-slate-950 hover:bg-slate-950 hover:text-white"
-                href="mailto:ohrytskov20230516@gmail.com"
-              >
-                ohrytskov20230516@gmail.com
-              </a>
-              <a
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-4 py-2 font-medium text-slate-800 transition hover:border-slate-950 hover:bg-slate-950 hover:text-white"
-                href={profile.html_url}
-                target="_blank"
-                rel="noreferrer"
-              >
-                github.com/ohrytskov
-              </a>
+            <div className="mt-4 max-w-2xl">
+              <ContactForm />
             </div>
           </div>
 
