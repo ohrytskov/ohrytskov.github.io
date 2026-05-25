@@ -14,7 +14,13 @@ type Status =
   | {kind: "sent"}
   | {kind: "error"; message: string};
 
-export function ContactForm() {
+type Props = {
+  // "light" = white card background (slate-300 borders, dark text)
+  // "dark"  = slate-950 card background (slate-700 borders, light text, white-tint inputs)
+  variant?: "light" | "dark";
+};
+
+export function ContactForm({variant = "light"}: Props) {
   const [status, setStatus] = useState<Status>({kind: "idle"});
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +32,6 @@ export function ContactForm() {
     setStatus({kind: "sending"});
 
     const form = e.currentTarget;
-    // Read the honeypot field directly from the DOM (kept off React state on purpose).
     const honeypot = (form.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "";
 
     try {
@@ -48,13 +53,29 @@ export function ContactForm() {
     }
   }
 
+  const dark = variant === "dark";
+
+  const inputClass = dark
+    ? "w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-slate-400 outline-none focus:border-white/40"
+    : "w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-950";
+
+  const submitClass = dark
+    ? "inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-950 transition hover:bg-slate-100 disabled:opacity-50"
+    : "inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-base font-semibold text-white transition hover:bg-slate-800 disabled:opacity-50";
+
   if (status.kind === "sent") {
     return (
-      <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-5 text-sm text-emerald-800">
-        Thanks — message sent. I&apos;ll get back to you by email.
+      <div
+        className={
+          dark
+            ? "rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-5 text-sm text-emerald-100"
+            : "rounded-2xl border border-emerald-300 bg-emerald-50 p-5 text-sm text-emerald-800"
+        }
+      >
+        Thanks — message sent. I&apos;ll get back to you by email within 24 hours.
         <button
           type="button"
-          className="mt-3 block text-xs font-medium text-emerald-700 underline underline-offset-4"
+          className={`mt-3 block text-xs font-medium underline underline-offset-4 ${dark ? "text-emerald-200" : "text-emerald-700"}`}
           onClick={() => setStatus({kind: "idle"})}
         >
           Send another →
@@ -74,7 +95,7 @@ export function ContactForm() {
           placeholder="Your name"
           required
           maxLength={200}
-          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-slate-950"
+          className={inputClass}
         />
         <input
           type="email"
@@ -84,18 +105,18 @@ export function ContactForm() {
           placeholder="Your email"
           required
           maxLength={320}
-          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-slate-950"
+          className={inputClass}
         />
       </div>
       <textarea
         name="message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="What's on your mind?"
+        placeholder="What can I help with?"
         required
         rows={4}
         maxLength={10000}
-        className="w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-slate-950"
+        className={inputClass}
       />
       {/* Honeypot — bots fill, humans don't. Hidden via inline style so even
           motivated bots can't easily detect via class scanning. */}
@@ -107,16 +128,14 @@ export function ContactForm() {
         style={{position: "absolute", left: "-9999px", height: 0, width: 0, opacity: 0}}
         aria-hidden="true"
       />
-      <div className="flex items-center gap-3">
-        <button
-          type="submit"
-          disabled={status.kind === "sending"}
-          className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-2 text-sm font-medium text-white transition hover:bg-slate-800 disabled:opacity-50"
-        >
-          {status.kind === "sending" ? "Sending…" : "Send"}
+      <div className="flex items-center gap-3 pt-1">
+        <button type="submit" disabled={status.kind === "sending"} className={submitClass}>
+          {status.kind === "sending" ? "Sending…" : "Send message"}
         </button>
         {status.kind === "error" && (
-          <p className="text-sm text-red-600">Couldn&apos;t send: {status.message}</p>
+          <p className={`text-sm ${dark ? "text-red-300" : "text-red-600"}`}>
+            Couldn&apos;t send: {status.message}
+          </p>
         )}
       </div>
     </form>
