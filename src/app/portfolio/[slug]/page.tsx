@@ -36,16 +36,6 @@ export default async function ProjectPage({
           >
             ← Portfolio
           </Link>
-          {p.liveUrl && (
-            <a
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-slate-50 px-5 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-950 hover:bg-slate-950 hover:text-white"
-              href={p.liveUrl.startsWith("http") ? p.liveUrl : `https://${p.liveUrl}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live →
-            </a>
-          )}
         </header>
 
         <article className="flex-1 py-10 lg:py-14">
