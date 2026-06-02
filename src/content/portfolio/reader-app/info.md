@@ -66,7 +66,6 @@ https://github.com/ohrytskov/reader-app (private)
 
 ## Screenshots
 
-- `image-01.png` — Idle state: "Take photo" + "Choose from library" buttons
-- `image-02.png` — Done state with Ukrainian source: language auto-detected as `uk`, language picker switches to Ukrainian, voice picker shows "(no voices for uk)" — honest fallback for unsupported voices
-- `image-03.png` — Done state with English source: language auto-detected as `en`, voice automatically set to "Google US English (en-US)"
-- `image-04.png` — Worker source (`worker/src/index.ts`) — Gemini call with `responseSchema` for typed JSON output
+- `image-01.png` — Home screen: speaker icon, serif "Reader" title, schematic camera + library buttons, books decoration on a shelf below
+- `image-02.png` — Done state: transcribed text in a serif reading panel; language auto-detected as `en`, voice picker pre-set to "Google US English (en-US)"; Play / Stop / New controls
+- `image-03.png` — Worker source (`worker/src/index.ts`) — Gemini call with `responseSchema` for typed JSON output
