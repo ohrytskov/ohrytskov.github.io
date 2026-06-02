@@ -64,6 +64,20 @@ export default async function ProjectPage({
             <p className="mt-4 text-sm text-slate-500">Published {p.published}</p>
           )}
 
+          {p.liveUrl && (
+            <p className="mt-2 text-sm">
+              <span className="text-slate-500">Live · </span>
+              <a
+                href={p.liveUrl.startsWith("http") ? p.liveUrl : `https://${p.liveUrl}`}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-slate-950 underline decoration-slate-400 underline-offset-4 transition hover:decoration-slate-950"
+              >
+                {p.liveUrl.replace(/^https?:\/\//, "")}
+              </a>
+            </p>
+          )}
+
           {p.images.length > 0 && (
             <section className="mt-12 grid gap-6">
               {p.images.map((img) => (

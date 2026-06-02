@@ -12,10 +12,6 @@ Next.js, React, JavaScript, Tailwind CSS, TypeScript, Web Development, Cloudflar
 
 Jan 14, 2024
 
-## Live URL
-
-clubsall.com
-
 ## Full Description
 
 ClubsAll - Portfolio Description.

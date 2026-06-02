@@ -14,10 +14,6 @@ Next.js, React, Tailwind CSS, Twilio API, TypeScript, JavaScript, Web Developmen
 
 Jan 14, 2024
 
-## Live URL
-
-coldcall.app
-
 ## Full Description
 
 **ColdCall — Free Local Presence Calling for Sales Professionals**
