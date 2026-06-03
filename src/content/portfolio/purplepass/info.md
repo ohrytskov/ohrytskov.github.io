@@ -16,10 +16,6 @@ JavaScript, React, TypeScript, MobX, Next.js
 
 May 16, 2023
 
-## Live URL
-
-beta.purplepass.com/
-
 ## Screenshots
 
 - `image-01.png` — Event page
