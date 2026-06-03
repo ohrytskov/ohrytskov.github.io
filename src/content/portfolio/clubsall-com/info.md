@@ -14,10 +14,6 @@ Jan 14, 2024
 
 ## Full Description
 
-ClubsAll - Portfolio Description.
-
-Welcome to ClubsAll, where connections thrive and communities come alive! This portfolio showcases the essence of ClubsAll, a dynamic platform designed to bring people together through shared interests and engaging discussions.
-
 ### Key Features
 
 - **Iconic Design** — The ClubsAll icon represents the gateway to a world of diverse communities and discussions. Its simplicity exudes a sense of inclusivity, inviting users to explore and connect.

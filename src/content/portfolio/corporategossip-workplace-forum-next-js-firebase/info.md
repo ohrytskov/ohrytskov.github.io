@@ -12,6 +12,10 @@ React, Next.js, Firebase, Cloudflare, Tailwind CSS
 
 Apr 3, 2026
 
+## Live URL
+
+corpgossip.com
+
 ## Full Description
 
 CorporateGossip (Sales Gossip).

@@ -12,10 +12,6 @@ React, Next.js, Firebase
 
 Apr 6, 2026
 
-## Live URL
-
-corpgossip.com
-
 ## Full Description
 
 corpgossip.com (Sales Gossip) Internal Dashboard.
