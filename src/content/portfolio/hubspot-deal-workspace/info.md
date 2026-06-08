@@ -38,6 +38,10 @@ Three React + TypeScript cards sit on the Deal record and surface a real interna
 - Vitest unit tests for stage gating, tier-conditional checklist, document routing
 - GitHub Actions CI: tests + build + property-manifest dry-run
 
+### Repo
+
+Public on GitHub: https://github.com/ohrytskov/hubspot-deal-workspace
+
 ### Captures
 
 A 2-minute Loom walkthrough covers all three cards plus the supporting code:
