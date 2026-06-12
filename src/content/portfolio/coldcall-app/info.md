@@ -1,4 +1,4 @@
-# coldcall.app
+# ColdCall — Local-Presence Outbound Dialer for Sales with Twilio Voice (Next.js, React, TypeScript)
 
 ## Description
 
