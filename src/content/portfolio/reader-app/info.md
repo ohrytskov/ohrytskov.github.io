@@ -62,7 +62,7 @@ iPhone PWA                  Cloudflare Worker          Google Gemini
 
 ### Repo
 
-https://github.com/ohrytskov/reader-app (private)
+https://github.com/ohrytskov/reader-app
 
 ## Screenshots
 

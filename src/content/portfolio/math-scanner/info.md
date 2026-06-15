@@ -58,7 +58,7 @@ iPhone PWA               Cloudflare Worker        Google Gemini
 
 ### Repo
 
-https://github.com/ohrytskov/math-scanner (private)
+https://github.com/ohrytskov/math-scanner
 
 ## Screenshots
 
