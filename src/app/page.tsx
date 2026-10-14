@@ -75,7 +75,7 @@ export default async function Home() {
                 Oleksandr Hrytskov
               </p>
               <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-                Full-Stack developer for React, TypeScript, and AI integration.
+                Full-Stack projects - React, TypeScript, and AI integration.
               </h2>
               <div className="mt-6 space-y-4 text-lg leading-8 text-slate-700">
                 {bioLines.map((line) => (
