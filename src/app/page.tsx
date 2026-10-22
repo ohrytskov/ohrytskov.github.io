@@ -12,7 +12,7 @@ function getFocusAreas(bioLines: string[]) {
   const areas = Array.from(
     new Set(
       bioLines
-        .flatMap((line) => line.split(/[•,]/))
+        .flatMap((line) => line.split(/[•,]|\s+-\s+/))
         .map((item) => item.trim())
         .filter(Boolean),
     ),
@@ -182,7 +182,10 @@ export default async function Home() {
             </div>
 
             <dl className="mt-6 grid gap-3 sm:grid-cols-2">
-              <Stat label="Location" value={profile.location ?? "Ukraine"} />
+              <Stat
+                label="Location"
+                value={profile.location?.split(",")[0].trim() || "Kyiv"}
+              />
               <Stat label="Latest Contribution" value={latestContributionDate} />
               <Stat label="Public Repos" value={formatNumber(profile.public_repos)} />
               <Stat
