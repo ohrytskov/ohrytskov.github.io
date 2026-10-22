@@ -9,7 +9,7 @@ import {
 } from "@/lib/github";
 
 function getFocusAreas(bioLines: string[]) {
-  return Array.from(
+  const areas = Array.from(
     new Set(
       bioLines
         .flatMap((line) => line.split(/[•,]/))
@@ -17,6 +17,23 @@ function getFocusAreas(bioLines: string[]) {
         .filter(Boolean),
     ),
   );
+
+  const displayAreas = areas.map((area) =>
+    area.toLowerCase() === "full-stack developer" ? "Full-Stack projects" : area,
+  );
+  const areasWithoutTypeScript = displayAreas.filter(
+    (area) => area.toLowerCase() !== "typescript",
+  );
+  const nodeIndex = areasWithoutTypeScript.findIndex(
+    (area) => area.toLowerCase() === "node.js",
+  );
+  areasWithoutTypeScript.splice(
+    nodeIndex === -1 ? areasWithoutTypeScript.length : nodeIndex,
+    0,
+    "TypeScript",
+  );
+
+  return areasWithoutTypeScript;
 }
 
 function Stat({ label, value }: { label: string; value: string }) {
@@ -45,7 +62,14 @@ export default async function Home() {
               Public GitHub Profile
             </p>
             <h1 className="mt-2 text-xl font-semibold text-slate-950">
-              github.com/ohrytskov
+              <a
+                href={profile.html_url}
+                target="_blank"
+                rel="noreferrer"
+                className="underline decoration-slate-400 underline-offset-4 transition hover:decoration-slate-950"
+              >
+                github.com/ohrytskov
+              </a>
             </h1>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -82,7 +106,7 @@ export default async function Home() {
                   <p key={line}>{line}</p>
                 ))}
                 <p>
-                  Selected work lives on the{" "}
+                  Selected projects live on the{" "}
                   <Link
                     href="/portfolio/"
                     className="font-medium text-slate-950 underline decoration-slate-400 underline-offset-4 transition hover:decoration-slate-950"
