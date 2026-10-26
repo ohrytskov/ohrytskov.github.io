@@ -189,7 +189,7 @@ export default async function Home() {
               <Stat label="Latest Contribution" value={latestContributionDate} />
               <Stat label="Public Repos" value={formatNumber(profile.public_repos)} />
               <Stat
-                label="Contributions (Last Year)"
+                label="Contributions"
                 value={formatNumber(profile.contributions_last_year)}
               />
             </dl>
