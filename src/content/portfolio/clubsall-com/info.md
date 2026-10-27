@@ -1,4 +1,4 @@
-# ClubsAll — Multi-Topic Community Platform with Posts, Comments, and Reactions (Next.js, React, TypeScript)
+# Clubs All — Multi-Topic Community Platform with Posts, Comments, and Reactions (Next.js, React, TypeScript)
 
 ## Description
 
